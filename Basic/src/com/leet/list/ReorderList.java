@@ -78,7 +78,7 @@ public class ReorderList {
         c.next = d;
         d.next = e;
         b.next=null;
-        a=null;
+        
         pList(a);
         new ReorderList().reorderList(a);
         pList(a);
