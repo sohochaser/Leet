@@ -1,5 +1,7 @@
 package com.leet.nb;
 
+import com.leet.TreeNode;
+
 /**
  * Given a binary tree, find its minimum depth.
  * 
