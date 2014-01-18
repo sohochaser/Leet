@@ -61,4 +61,11 @@ public class TreeNode {
 		System.out.println();
 		return node;
 	}
+
+	@Override
+	public String toString() {
+		return "TreeNode [val=" + val + ", "
+				+ (left != null ? "left=" + left.val + ", " : "NULL")
+				+ (right != null ? "right=" + right.val : "NULL") + "]";
+	}
 }
