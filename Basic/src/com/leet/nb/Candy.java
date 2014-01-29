@@ -31,7 +31,7 @@ public class Candy {
 
         for (int i = ratings.length - 1; i > 0; i--) {
             if (ratings[i - 1] > ratings[i]) {
-                if (dp[i - 1] <= dp[i]) {
+                if (dp[i - 1] <= dp[i]) {// !!!!!
                     dp[i - 1] = dp[i] + 1;
                 }
             }
