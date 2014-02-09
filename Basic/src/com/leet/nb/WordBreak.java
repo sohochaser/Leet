@@ -1,4 +1,4 @@
-package com.leet.dict;
+package com.leet.nb;
 
 import java.util.HashSet;
 import java.util.Set;
