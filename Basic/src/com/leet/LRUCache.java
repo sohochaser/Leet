@@ -1,4 +1,4 @@
-package com.leet.design;
+package com.leet;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,6 +51,7 @@ public class LRUCache {
         public String toString() {
             return "Pair [key=" + key + ", value=" + value + ", next=" + next.value + "]";
         }
+
     }
 
     public LRUCache(int capacity) {
