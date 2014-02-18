@@ -13,7 +13,7 @@ package com.leet.nb;
  * @author Allen
  * 
  */
-class WordBreakII {
+public class WordBreakII {
 
 	int singleNumber(int A[]) {
 		int[] x = new int[32];
