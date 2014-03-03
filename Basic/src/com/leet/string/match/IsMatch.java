@@ -40,28 +40,14 @@ public class IsMatch {
 		if (s.isEmpty()) {
 			return true;
 		}
-
-		for (int i = p.length() - 1, k = s.length() - 1; k >= 0 && i >= 0; i--) {
-			char c = p.charAt(i);
-			if (c != '.' && c != '*') {
-				if (k >= 0 && s.charAt(k) != c) {
-					return false;
-				}
-				k--;
-			} else if (c == '.') {
-				k--;
-			} else {
-
-			}
-		}
-		return false;
+		return check(s, p);
 	}
 
 	private boolean check(String s, String p) {
 		int i = 0, j = 0;
 		for (i = s.length() - 1, j = p.length() - 1; i >= 0 && j >= 0; i--, j--) {
-			char c = p.charAt(i);
-			if (c == '.' || c == '*') {
+			char c = p.charAt(j);
+			if (c == '*') {
 				break;
 			}
 			if (c == '.') {
@@ -72,21 +58,52 @@ public class IsMatch {
 				return false;
 			}
 		}
-		if (i == 0 || j == 0) {
+		if (i == -1 || j == -1) {
 			if (i != j) {
 				return false;
 			} else {
 				return true;
 			}
 		}
+
 		String ss = s.substring(0, i + 1);
 		String sp = p.substring(0, j + 1);
-
 		char c = sp.charAt(j - 1);
 		if (c == '.') {
 			return true;
+		} else {
+			while (i >= 0) {
+				if (ss.charAt(i) != c) {
+					break;
+				}
+				i--;
+			}
 		}
 
-		return true;
+		if (i < 0 && j == 1) {
+			return true;
+		} else if (i < 0 && j > 1) {
+			int tmp = j - 2;
+			while (tmp >= 0 && sp.charAt(tmp) == '*') {
+				tmp -= 2;
+			}
+			if (tmp == -1) {
+				return true;
+			}
+			return false;
+		}
+		return check(ss.substring(i+1), sp.substring(0, j - 1));
+	}
+
+	public static void main(String[] args) {
+		 System.out.println(new IsMatch().isMatch("aa", "aa"));//true
+		 System.out.println(new IsMatch().isMatch("aa", "a"));//false
+		 System.out.println(new IsMatch().isMatch("aaa", ".a"));//false
+		System.out.println(new IsMatch().isMatch("aab", "c*a*b"));//true
+		System.out.println(new IsMatch().isMatch("aaa", "ab*a"));//false
+		System.out.println(new IsMatch().isMatch("aaa", "ab*ac*a"));//true!!!
+		
+		
+
 	}
 }
