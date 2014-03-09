@@ -18,42 +18,34 @@ import com.leet.TreeNode;
  * @author Allen
  * 
  */
-public class RecoverTree {
+public class RecoverTreeFix {
+	TreeNode pre = null;
+	TreeNode n1 = null;
+	TreeNode n2 = null;
 
-	private static StringBuilder sb = new StringBuilder();
-
-	public void recoverTree2(TreeNode root) {
-		TreeNode pre = null;
-		TreeNode n1 = null;
-		TreeNode n2 = null;
-		check2(root, pre, n1, n2);
+	public void recoverTree(TreeNode root) {
+		check(root);
 		int tmp = n1.val;
 		n1.val = n2.val;
-		n2.val = n1.val;
+		n2.val = tmp;
 	}
 
-	private void check2(TreeNode root, TreeNode pre, TreeNode n1, TreeNode n2) {
-		sb.append(">");
+	private void check(TreeNode root) {
 		if (root != null) {
-			System.out.println(sb.toString() + root);
-			check2(root.left, pre, n1, n2);
-			if (pre == null) {
-				System.out.println(sb.toString() + "PRE");
-				pre = root;
-			} else {
+			check(root.left);
+			if (pre != null) {
 				if (root.val < pre.val) {
 					if (n1 == null) {
 						n1 = pre;
+						n2 = root;
 					} else {
 						n2 = root;
 					}
-					pre = root;
 				}
 			}
-			System.out.println(sb.toString() + root + " -> " + pre);
-			check2(root.right, pre, n1, n2);
+			pre = root;
+			check(root.right);
 		}
-		sb.setLength(sb.length() - 1);
 	}
 
 	public void recoverTree1(TreeNode root) {
@@ -89,14 +81,14 @@ public class RecoverTree {
 	}
 
 	public static void main(String[] args) {
-		TreeNode a = new TreeNode(2);
-		TreeNode b = new TreeNode(3);
-		TreeNode c = new TreeNode(1);
+		TreeNode a = new TreeNode(3);
+		TreeNode b = new TreeNode(1);
+		TreeNode c = new TreeNode(2);
 		a.left = b;
 		a.right = c;
 		TreeNode.inOrder(a);
 		System.out.println();
-		new RecoverTree().recoverTree2(a);
+		new RecoverTreeFix().recoverTree(a);
 		System.out.println();
 		TreeNode.inOrder(a);
 	}
