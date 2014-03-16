@@ -213,3 +213,5 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+Basic/src/org/fenixsoft/clazz/A.java
+Basic/src/org/fenixsoft/clazz/TestClass.java
