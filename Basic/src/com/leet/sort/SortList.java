@@ -3,7 +3,11 @@ package com.leet.sort;
 import com.leet.list.ListNode;
 
 /**
- * Sort a linked list in O(n log n) time using constant space complexity.
+ * <ol>
+ * <li>Sort a linked list in O(n log n) time using constant space complexity.
+ * <li>Quick sort at worst N*N
+ * <li>Merge sort O( n log N).
+ * </ol>
  * 
  * @author Allen
  * 
