@@ -1,12 +1,5 @@
 package com.leet.tree.sum;
 
-import java.util.Queue;
-
-import javax.sound.midi.Instrument;
-import javax.sound.midi.Patch;
-import javax.sound.midi.Soundbank;
-import javax.sound.midi.SoundbankResource;
-
 import com.leet.TreeNode;
 
 /**
