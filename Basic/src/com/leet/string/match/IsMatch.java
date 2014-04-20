@@ -92,18 +92,15 @@ public class IsMatch {
 			}
 			return false;
 		}
-		return check(ss.substring(i+1), sp.substring(0, j - 1));
+		return check(ss.substring(i + 1), sp.substring(0, j - 1));
 	}
 
 	public static void main(String[] args) {
-		 System.out.println(new IsMatch().isMatch("aa", "aa"));//true
-		 System.out.println(new IsMatch().isMatch("aa", "a"));//false
-		 System.out.println(new IsMatch().isMatch("aaa", ".a"));//false
-		System.out.println(new IsMatch().isMatch("aab", "c*a*b"));//true
-		System.out.println(new IsMatch().isMatch("aaa", "ab*a"));//false
-		System.out.println(new IsMatch().isMatch("aaa", "ab*ac*a"));//true!!!
-		
-		
-
+		System.out.println(new IsMatch().isMatch("aa", "aa"));// true
+		System.out.println(new IsMatch().isMatch("aa", "a"));// false
+		System.out.println(new IsMatch().isMatch("aaa", ".a"));// false
+		System.out.println(new IsMatch().isMatch("aab", "c*a*b"));// true
+		System.out.println(new IsMatch().isMatch("aaa", "ab*a"));// false
+		System.out.println(new IsMatch().isMatch("aaa", "ab*ac*a"));// true!!!
 	}
 }
